@@ -1,16 +1,16 @@
-#Meraki Dashboard Integration with Amazon Alexa
+**Meraki Dashboard Integration with Amazon Alexa**
 
-#Description
+**Description**
 
 The goal of this project if to highlight the automation and integration capabilities of Cisco product portfolio via its APIs. In this scenario we are integration Meraki Dashboard with Amazon Alexa and Webex Teams via common set of APIs. By leveraging Amazon Alexa’s Natural Language Processing capabilities, we are enabling end users/ the business to perform network configuration changes, gather network status information expressing desired outcome (intent) rather than a network command. In specific, in this project, users can obtain network status, change clients group policies to block and allow access to Internet/ Streaming Video services such as Netflix and YouTube, via Amazon Alexa. In addition, we are also exposing Webex Teams APIs, to post Meraki Dashboards alerts on a Webex Teams room via a Webhook, leveraging Built.io.
 
-#Integration Workflows
+**Integration Workflows**
 
 User speech -- Amazon Alexa -- AWS Lambda Function (Python Script) -- Meraki Dashboard APIs
 
 Meraki Dashboard -- Built.io/ Webhook (JSON format) -- Built.io/ Post Message on Webex Teams (via APIs)
 
-#Resources
+**Resources**
 
 alexa developer console -- https://developer.amazon.com
 AWS Lambda Service -- https://console.aws.amazon.com/lambda
@@ -19,11 +19,11 @@ Meraki Dashboard API -- https://create.meraki.io/
 Built.io -- https://www.built.io/
 JSON Formatter -- https://jsonformatter.org/#
 
-#Installation
+**Installation**
 
 Follow instructions from Shiyue Cheng’s post on https://create.meraki.io/build/meraki-dashboard-with-alexa/
 
-#Additional Comments:
+Additional Comments:
 
 When creating your custom skill on your alexa developer console make sure to match the skills’ name with the names you have given them on the lambda_function.py file. Make sure to enter as many utterances as needed to invoke your skill. These are your intents/ desired outcomes. For example, for the BlockIpad intent, we are entering the utterances: block internet on iPads, block all iPads, no more iPads
 
@@ -45,7 +45,7 @@ Log into Built.io and create a new workflow, make sure to use webhook as trigger
 
 When configuring Webhook in Built.io, make sure to select payload and enter a sample of your webhook payload in a valid JSON format. This will help you format your Webex Teams message post. To format the payload, I used https://jsonformatter.org/#
 
-#Usage
+**Usage**
 
 On your Amazon Alex device, mobile app or alexa developer console test say: “Ask Meraki” to invoke the skill follow by the intent, i.e. “block iPads”
 
@@ -62,11 +62,11 @@ BlockStreaming – block streaming video and audio services by predefined client
 AllowAccess – allow internet access to predefined client identified by client name and or mac address, by changing their group policy to “Normal”
 Any configuration setting change (i.e. BlockiPad, BlockStreaming, AllowAccess) triggers an Alert that it is posted as a message on a Webex Team room.
 
-#Files
+**Files**
 
 Lambda_function.py
 Meraki_info.py
 
-#Disclaimer
+**Disclaimer**
 
 This code is based out of Shiyue Cheng’s post (https://create.meraki.io/build/meraki-dashboard-with-alexa/). Special thanks to Shiyue Cheng (Meraki Solutions Architect), Santiago Flores (Americas SP SE), and Gerardo Chaves (GVE VSE) for all the coaching and guidance.
