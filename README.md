@@ -53,22 +53,22 @@ On your Amazon Alex device, mobile app or alexa developer console test say: “A
 
 Here are all the intents defined in this project
 
-- WhoAreYou – replies with predefined message
-- GetLicenseStatus – replies with license expiration info
-- GetNetworkStatus – provides status of the network
-- GetDeviceStatus – provides status of predefined device (i.e. Switch, AP, MX etc.)
-- GetClientDevices – provides list of connected clients to predefined device in the last hour and combined usage
-- WhyInternetSlow – look into all clients connected to a predefined device and list top bandwidth hog
-- BlockiPad – block Internet access to ipads (identified by mac address), by changing their group policy to “Blocked”
-- BlockStreaming – block streaming video and audio services by predefined client name and/or mac address, by changing their group policy to “Block Video and Music”
-- AllowAccess – allow internet access to predefined client identified by client name and or mac address, by changing their group policy to “Normal”
+- **WhoAreYou** – replies with predefined message
+- **GetLicenseStatus** – replies with license expiration info
+- **GetNetworkStatus** – provides status of the network
+- **GetDeviceStatus** – provides status of predefined device (i.e. Switch, AP, MX etc.)
+- **GetClientDevices** – provides list of connected clients to predefined device in the last hour and combined usage
+- **WhyInternetSlow** – look into all clients connected to a predefined device and list top bandwidth hog
+- **BlockiPad** – block Internet access to ipads (identified by mac address), by changing their group policy to “Blocked”
+- **BlockStreaming** – block streaming video and audio services by predefined client name and/or mac address, by changing their group policy to “Block Video and Music”
+- **AllowAccess** – allow internet access to predefined client identified by client name and or mac address, by changing their group policy to “Normal”
 
 Any configuration setting change (i.e. BlockiPad, BlockStreaming, AllowAccess) triggers an Alert that it is posted as a message on a Webex Team room.
 
 ## **Files**
 
-Lambda_function.py
-Meraki_info.py
+- Lambda_function.py
+- Meraki_info.py
 
 ## **Disclaimer**
 
