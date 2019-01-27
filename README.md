@@ -12,12 +12,12 @@ Meraki Dashboard -- Built.io/ Webhook (JSON format) -- Built.io/ Post Message on
 
 ## **Resources**
 
-alexa developer console -- https://developer.amazon.com
-AWS Lambda Service -- https://console.aws.amazon.com/lambda
-AWS CloudWatch Service --https://console.aws.amazon.com/cloudwatch
-Meraki Dashboard API -- https://create.meraki.io/
-Built.io -- https://www.built.io/
-JSON Formatter -- https://jsonformatter.org/#
+- alexa developer console -- https://developer.amazon.com
+- AWS Lambda Service -- https://console.aws.amazon.com/lambda
+- AWS CloudWatch Service --https://console.aws.amazon.com/cloudwatch
+- Meraki Dashboard API -- https://create.meraki.io/
+- Built.io -- https://www.built.io/
+- JSON Formatter -- https://jsonformatter.org/#
 
 ## **Installation**
 
@@ -31,12 +31,14 @@ When updating your lamda_function.py and meraki_info.py files, make sure to:
 
 lambda_function.py: 1.- Create new functions (Block Streaming, Block iPads, Allow Access) 2.- Update intent function to align with your alexa custom skills intents 3.- Add code to execute intent on multiple devices simultaneously (mac addresses) 4.- Cleanup code, remove unwanted functions
 
-meraki_info.py 1.- Define Global Variables 2.- Note from the original post there are new variables introduced
+meraki_info.py 
+1. Define Global Variables 
+2. Note from the original post there are new variables introduced
+- group_policy = 'Block Video and Music'
+- group_policy_2 = 'Normal'
+- group_policy_3 = 'Blocked'
+- mac_addresses = [‘XX:XX:XX:XX:XX:XX', ‘XX:XX:XX:XX:XX:XX', ‘XX:XX:XX:XX:XX:XX']
 
-group_policy = 'Block Video and Music'
-group_policy_2 = 'Normal'
-group_policy_3 = 'Blocked'
-mac_addresses = [‘XX:XX:XX:XX:XX:XX', ‘XX:XX:XX:XX:XX:XX', ‘XX:XX:XX:XX:XX:XX']
 You will be using AWS Lambda service to run Python code as a service and CloudWatch service for log streams. To access ClouldWatch, click on services on your AWS console and search for CloudWatch
 
 To create Webhook, search for webhook on Meraki.io and follow instructions. (i.e. https://create.meraki.io/guides/webhooks/)
@@ -51,15 +53,16 @@ On your Amazon Alex device, mobile app or alexa developer console test say: “A
 
 Here are all the intents defined in this project
 
-WhoAreYou – replies with predefined message
-GetLicenseStatus – replies with license expiration info
-GetNetworkStatus – provides status of the network
-GetDeviceStatus – provides status of predefined device (i.e. Switch, AP, MX etc.)
-GetClientDevices – provides list of connected clients to predefined device in the last hour and combined usage
-WhyInternetSlow – look into all clients connected to a predefined device and list top bandwidth hog
-BlockiPad – block Internet access to ipads (identified by mac address), by changing their group policy to “Blocked”
-BlockStreaming – block streaming video and audio services by predefined client name and/or mac address, by changing their group policy to “Block Video and Music”
-AllowAccess – allow internet access to predefined client identified by client name and or mac address, by changing their group policy to “Normal”
+- WhoAreYou – replies with predefined message
+- GetLicenseStatus – replies with license expiration info
+- GetNetworkStatus – provides status of the network
+- GetDeviceStatus – provides status of predefined device (i.e. Switch, AP, MX etc.)
+- GetClientDevices – provides list of connected clients to predefined device in the last hour and combined usage
+- WhyInternetSlow – look into all clients connected to a predefined device and list top bandwidth hog
+- BlockiPad – block Internet access to ipads (identified by mac address), by changing their group policy to “Blocked”
+- BlockStreaming – block streaming video and audio services by predefined client name and/or mac address, by changing their group policy to “Block Video and Music”
+- AllowAccess – allow internet access to predefined client identified by client name and or mac address, by changing their group policy to “Normal”
+
 Any configuration setting change (i.e. BlockiPad, BlockStreaming, AllowAccess) triggers an Alert that it is posted as a message on a Webex Team room.
 
 ## **Files**
